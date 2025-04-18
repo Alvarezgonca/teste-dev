@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('telefone');
             $table->integer('idade');
-            $table->foreignId('endereco_id')->constrained()->onDelete('set null')->nullable();
+            $table->foreignId('endereco_id')->constrained()->onDelete('cascade')->unique();
             $table->timestamps();
         });
     }

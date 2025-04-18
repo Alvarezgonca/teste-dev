@@ -15,8 +15,8 @@ class Endereco extends Model
         'estado'
     ];
 
-    public function contatos()
+    public function contato()
     {
-        return $this->hasMany(Contato::class);
+        return $this->hasOne(Contato::class);
     }
 }
