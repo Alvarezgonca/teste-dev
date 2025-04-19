@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('contatos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('telefone');
+            $table->string('telefone')->unique();
             $table->integer('idade');
             $table->foreignId('endereco_id')->constrained()->onDelete('cascade')->unique();
             $table->timestamps();
