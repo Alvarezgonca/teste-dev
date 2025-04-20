@@ -49,7 +49,7 @@ Ao final terá os requisitos/regras deste teste prático.
 
     `php artisan key:generate`
 
-7. **Configure corretamente as credenciais do banco de dados no arquivo `.env`:**
+7. **Mantenha as configurações do banco de dados como estão, pois o Sail já criou e configurou os containers necessários.**
 
     ```
         DB_CONNECTION=pgsql
@@ -63,6 +63,10 @@ Ao final terá os requisitos/regras deste teste prático.
 8. **(Opcional) Ao final tem uma explicação de como criar um alias para reduzir os códigos.**
     
 9. **OBS: Rode os comandos com "sail" caso tenha criado o alias. Caso contrário, utilize "./vendor/bin/sail"**
+
+10. **Finalize o PostgreSQL local para evitar conflitos:**
+
+    `sudo systemctl stop postgresql`
 
 10. **Inicie os containers do Docker: O comando abaixo irá rodar o Laravel Sail em segundo plano, criando e inicializando os containers necessários**.
 
