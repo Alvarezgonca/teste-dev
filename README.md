@@ -31,19 +31,94 @@ Ao final terá os requisitos/regras deste teste prático.
 
 2. **Navegue até o diretório do projeto**:
 
-    `cd teste-pratico`
+    `cd nome-do-diretório`
 
-3. **Inicie os containers do Docker: O comando abaixo irá rodar o Laravel Sail em segundo plano, criando e inicializando os containers necessários**.
+3. **Instale as dependências do Laravel:**
+
+    `composer install`
+
+4. **Instale as dependências do frontend (npm):**
+
+    `npm install`
+
+5. **Copie o arquivo `.env.example` e crie o `.env`:**
+
+    `cp .env.example .env`
+
+6. **Execute a chave da aplicação:**
+
+    `php artisan key:generate`
+
+7. **Configure corretamente as credenciais do banco de dados no arquivo `.env`:**
+
+    ```
+        DB_CONNECTION=pgsql
+        DB_HOST=pgsql
+        DB_PORT=5432
+        DB_DATABASE=laravel
+        DB_USERNAME=sail
+        DB_PASSWORD=password
+    ```
+
+8. **(Opcional) Ao final tem uma explicação de como criar um alias para reduzir os códigos.**
+    
+9. **OBS: Rode os comandos com "sail" caso tenha criado o alias. Caso contrário, utilize "./vendor/bin/sail"**
+
+10. **Inicie os containers do Docker: O comando abaixo irá rodar o Laravel Sail em segundo plano, criando e inicializando os containers necessários**.
 
     `sail up -d`
 
-4. **Execute as migrações do banco de dados: Para garantir que a estrutura do banco de dados esteja configurada corretamente, execute:**
+    ### ou
+
+    `./vendor/bin/sail up -d`
+
+11. **Execute as migrações do banco de dados: Para garantir que a estrutura do banco de dados esteja configurada corretamente, execute:**
 
     `sail artisan migrate`
 
-5. **Acesse o Projeto: Abra seu navegador e acesse o aplicativo em:**
+    ### ou
+
+    `./vendor/bin/sail artisan migrate`
+
+12. **Execute os seeders: O comando abaixo vai criar os seeds caso deseje.**
+
+    `sail artisan db:seed`
+
+    ### ou
+
+    `./vendor/bin/sail artisan db:seed`
+
+13. **Compile os assets com Vite:**
+
+    `sail npm run dev`
+
+    ### ou
+
+    `./vendor/bin/sail npm run dev`
+
+14. **Acesse o Projeto: Abra seu navegador e acesse o aplicativo em:**
 
     `http://localhost`
+
+15. **(Opcional) Criar um Alias para o Sail. Se você usa Zsh, edite ~/.zshrc; se usa Bash, edite ~/.bashrc:**
+
+    `nano ~/.zshrc`
+    
+    ### ou
+
+    `nano ~/.bashrc`
+
+16. **Adicione ao final do arquivo:**
+
+    `alias sail='./vendor/bin/sail'`
+
+17. **Salve (Ctrl+O + Enter) e saia (Ctrl+X). Em seguida, recarregue o shell:**
+
+    `source ~/.zshrc`
+
+    ### ou
+
+    `source ~/.bashrc`
 
 
 

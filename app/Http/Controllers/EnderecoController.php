@@ -8,20 +8,10 @@ use Illuminate\Http\JsonResponse;
 
 class EnderecoController extends Controller
 {
-    public function index(): JsonResponse
-    {
-        $enderecos = Endereco::all();
-
-        return response()->json([
-            'success' => true,
-            'data' => $enderecos,
-        ]);
-    }
-
-    public function store(Request $request): JsonResponse
+    public function store(Request $request)
     {
         $data = $request->validate([
-            'cep' => 'required|string',
+            'cep' => 'required|string|max:10',
             'rua' => 'required|string',
             'numero' => 'required|string',
             'complemento' => 'nullable|string',
@@ -31,10 +21,6 @@ class EnderecoController extends Controller
 
         $endereco = Endereco::create($data);
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Endereço criado com sucesso!',
-            'data' => $endereco,
-        ]);
+        return $endereco;
     }
 }

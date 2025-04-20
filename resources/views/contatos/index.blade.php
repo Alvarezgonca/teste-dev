@@ -71,9 +71,8 @@
         </table>
     </div>
 
-<!-- Paginação -->
 <div class="d-flex justify-content-center mt-4">
-    {{ $contatos->onEachSide(0)->links('pagination::bootstrap-4') }}
+    {{ $contatos->onEachSide(1)->links('pagination::bootstrap-4') }}
 </div>
 
 </main>
